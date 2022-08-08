@@ -5,7 +5,7 @@
 
 • Implemented Agile methodology for efficient project management
 
-Website URL: https://iter-new-adventures.herokuapp.com/homeFlights.html
+• Website URL: https://iter-new-adventures.herokuapp.com/homeFlights.html
 
 # Authors
 Seungjeh Lee

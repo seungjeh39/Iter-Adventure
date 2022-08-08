@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Iter Adventure </title>
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="style_sheet" rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <script src="translate.js"></script>
+</head>
+
+<body onload="start_contrast()" style="background-color:black;">
+    <div class="wrapper">
+        <div class="navBar1">
+            <div class="nav1-left">
+                <a href="homeFlights.html">ITER - New Adventures</a>
+            </div>
+            <div class="nav1-right">
+                <ul>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Language</button>
+                            <div class="dropdown-content">
+                                <a href="javascript:;" onclick="setLanguage('en');" style="color:black">English</a>
+                                <a href="javascript:;" onclick="setLanguage('es');" style="color:black">Spanish</a>
+                                <a href="javascript:;" onclick="setLanguage('fr');" style="color:black">French</a>
+                                <a href="javascript:;" onclick="setLanguage('ja');" style="color:black">Japanese</a>
+                                <a href="javascript:;" onclick="setLanguage('ru');" style="color:black">Russian</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a class="active" href="aboutUs.html">About Us</a></li>
+                    <li><a id="contrast" href="javascript:;" onclick="set_contrast();" class="active">Contrast On</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="navBar3">
+            <ul>
+                <li><a href="homeFlights.html">Flights</a></li>
+                <li><a class="active" href="homeHotels.html">Hotels</a></li>
+                <li><a href="homeExperiences.html">Experiences</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h2>Adventure Awaits!</h2>
+
+        <div class="searchBox" style="display:flex;">
+            <div style="float:left">
+                <label for="destination" style="display:block;">Destination</label>
+                <input name="destination" type="text" id="destination" style="margin-right:5px; display:block">
+            </div>
+            <div style="float:left">
+                <label for="checkInDate" style="display:block">Check in Date</label>
+                <input type="date" id="checkInDate" style="margin-right:5px; display:block;">
+            </div>
+            <div style="float:left">
+                <label for="checkOutDate" style="display:block">Check out Date</label>
+                <input type="date" id="checkOutDate" style="margin-right:5px; display:block;">
+            </div>
+            <div style="float:left">
+                <label for="numGuests" style="display:block;">Number of Guests</label>
+                <input type="number" id="numGuests" style="margin-right:5px; display:block">
+            </div>
+            <button onclick="passVariables()" style="margin-top:18px;">Find a Hotel</button>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <img src="pic/iterLogo.png" alt="Iter Adventure">
+    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLG2HWgQRUvWp3GLtdI7qkUb4VdfHEoJI&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function passVariables() {
+            const destination = document.getElementById("destination").value;
+            const checkInDate = document.getElementById("checkInDate").value;
+            const checkOutDate = document.getElementById("checkOutDate").value;
+            const numGuests = document.getElementById("numGuests").value;
+
+            window.location.href = "hotels.html?loc=" + destination + "&checkin=" + checkInDate + "&checkout=" + checkOutDate + "&numguests=" + numGuests;
+        }
+
+        //create autocomplete objects for all inputs
+        var options = {
+            types: ['(cities)']
+        }
+
+        var input1 = document.getElementById("destination");
+        var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+    </script>
+</body>
+
+</html>

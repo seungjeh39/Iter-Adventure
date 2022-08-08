@@ -1,0 +1,316 @@
+body {
+    background-color: rgb(101, 219, 223);
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+}
+
+.banner {
+    width: 100%;
+    height: 500px;
+    top: 120px;
+    background-image: url(pic/travel4.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    overflow: auto;
+}
+
+.banner h2 {
+    padding-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+    font-size: 70px;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(71, 71, 71);
+}
+
+.banner .searchBox {
+    align-items: center;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: fit-content;
+    height: 50px;
+    border: 5px solid #777;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin:auto;
+    border-radius: 300px;
+}
+
+#autocomplete{
+    width: 300px;
+}
+
+.banner .searchBox .input {
+    border: 2px solid black;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #e9e9e9;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+}
+
+.banner .searchBox-experiences .input:focus::placeholder {
+    color: transparent;
+}
+
+.banner .searchBox-experiences .input::placeholder {
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+.content-area {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    height: 250px;
+}
+
+.wrapper .navBar1 {
+    height: 65px;
+    background: black;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .navBar1 a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.wrapper .navBar1 a:hover {
+    background-color: powderblue;
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .navBar1 a.active {
+    background-color: rgb(31, 166, 184);
+    color: aliceblue;
+}
+
+.wrapper .navBar1 .nav1-left {
+    display: flex;
+    align-items: center;
+    background:rgb(31, 166, 184);
+    border-radius: 5px;
+}
+
+.wrapper .navBar1 .nav1-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background:black;
+    border-radius: 5px;
+    height: 100%;
+}
+  
+.wrapper .navBar1 .nav1-right ul {
+    display: flex;
+}
+
+.wrapper .navBar1 .nav1-right ul li {
+    margin: 0 10px;
+}
+
+.wrapper .navBar2-experiences {
+    background: rgb(185, 185, 185);
+    height: 40px;
+    padding: 0 30px;
+}
+
+.wrapper .navBar2-experiences a {
+    display: block;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.wrapper .navBar2-experiences a:hover {
+    background-color: rgb(31, 166, 184);
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .navBar2-experiences a.active {
+    background-color: rgb(31, 166, 184);
+    color: aliceblue;
+}
+
+.wrapper .navBar2-experiences ul {
+    height: 40px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.wrapper .navBar2-experiences ul li a {
+    color:rgb(23, 120, 133);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.wrapper .navBar3 {
+    background: black;
+    height: 50px;
+    padding: 0 150px;
+}
+
+.wrapper .navBar3 a {
+    display: block;
+    color:black;
+    background-color: rgb(31, 166, 184);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.wrapper .navBar3 a:hover {
+    background-color: powderblue;
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .navBar3 a.active {
+    background-color: rgb(9, 84, 94);
+    color: aliceblue;
+}
+
+.wrapper .navBar3 ul {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.wrapper .navBar3 ul li a {
+    color: aliceblue;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+.experiencesIn {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+ 
+.experiencesIn .experiences-location {
+    display: flex;
+    align-items: center;
+    background:rgb(31, 166, 184);
+    border-radius: 5px;
+    border: solid black;
+}
+
+.ex-wrapper{
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: center;
+    display: flex;
+    grid-gap: 32px 1px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ex-wrapper .gallery {
+    margin: 5px;
+    border: 5px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    width: 390px;
+}
+
+.ex-wrapper .gallery:hover {
+    border: 5px solid #777;
+    transition: all 0.3s ease-out;
+}
+
+.ex-wrapper .gallery img {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.ex-wrapper .gallery .desc {
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(31, 166, 184);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgb(23, 120, 133);
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+h2 {
+    margin: 1em;
+}
+
+p {
+    padding: 0.5em;
+    margin: 0;
+}
+
+.card {
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    transition: all .2s linear;
+    width: 700px;
+}
+
+.card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+}
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    height: 100%;
+    margin: 40px 100px 120px;
+}
+
+#mapcontainer{
+    margin: 23px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

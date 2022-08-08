@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Iter Adventure </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+    <link rel="stylesheet" type="text/css" href="translate.css">
+</head>
+
+<body onload="start_contrast()">
+
+    <div class="wrapper">
+        <div class="navBar1">
+            <div class="nav1-left">
+                <a href="homeFlights.html">Back to Homepage</a>
+            </div>
+            <div class="nav1-right">
+                <ul>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Language</button>
+                            <div class="dropdown-content">
+                                <a href="javascript:;" onclick="setLanguage('en');" style="color:black">English</a>
+                                <a href="javascript:;" onclick="setLanguage('es');" style="color:black">Spanish</a>
+                                <a href="javascript:;" onclick="setLanguage('fr');" style="color:black">French</a>
+                                <a href="javascript:;" onclick="setLanguage('ja');" style="color:black">Japanese</a>
+                                <a href="javascript:;" onclick="setLanguage('ru');" style="color:black">Russian</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a class="active" href="aboutUs.html">About Us</a></li>
+                    <li><a id="contrast" href="javascript:;" onclick="set_contrast();" class="active">Contrast On</a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navBar2-experiences">
+            <ul>
+                <li>
+                    <form id="formCulture" action="culture.html" method="GET">
+                        <a href="javascript:;" onclick="document.getElementById('formCulture').submit();">
+                            Culture
+                        </a>
+                        <input type="hidden" id="place" name="place" value="N/A" />
+                    </form>
+                </li>
+                <li>
+                    <form id="formMap" action="map.html" method="GET">
+                        <a href="javascript:;" onclick="document.getElementById('formMap').submit();">
+                            Map
+                        </a>
+                        <input type="hidden" id="place" name="place" value="N/A" />
+                    </form>
+                </li>
+                <li>
+                    <form id="formWeather" action="weather.html" method="GET">
+                        <a href="javascript:;" onclick="document.getElementById('formWeather').submit();">
+                            Weather
+                        </a>
+                        <input type="hidden" id="place" name="place" value="N/A" />
+                    </form>
+                </li>
+                <li>
+                    <form id="formImg" action="imageSearch.html" method="GET">
+                        <a href="javascript:;" onclick="document.getElementById('formImg').submit();">
+                            Image Search
+                        </a>
+                        <input type="hidden" id="place" name="place" value="N/A" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="experiencesIn">
+        <h2>Experiences in: </h2>
+        <div class="experiences-location">
+            <h2 id="location">loc</h2>
+        </div>
+    </div>
+
+    <div class="ex-wrapper">
+        <div class="gallery">
+            <form id="formCulture" action="culture.html" method="GET">
+                <a href="javascript:;" onclick="document.getElementById('formCulture').submit();">
+                    <img src="pic/culture.jpeg" alt="Culture" width="330" height="200">
+                </a>
+                <input type="hidden" id="place" name="place" value="N/A" />
+            </form>
+            <div class="desc"><strong>Culture</strong></div>
+        </div>
+        <div class="gallery">
+            <form id="formMap" action="map.html" method="GET">
+                <a href="javascript:;" onclick="document.getElementById('formMap').submit();">
+                    <img src="pic/map.jpg" alt="Map" width="330" height="200">
+                </a>
+                <input type="hidden" id="place" name="place" value="N/A" />
+                <div class="desc"><strong>Map</strong></div>
+            </form>
+        </div>
+        <div class="gallery">
+            <form id="formWeather" action="weather.html" method="GET">
+                <a href="javascript:;" onclick="document.getElementById('formWeather').submit();">
+                    <img src="pic/weather.jpg" alt="Weather" width="330" height="200">
+                </a>
+                <input type="hidden" id="place" name="place" value="N/A" />
+                <div class="desc"><strong>Weather</strong></div>
+            </form>
+        </div>
+        <div class="gallery">
+            <form id="formImg" action="imageSearch.html" method="GET">
+                <a href="javascript:;" onclick="document.getElementById('formImg').submit();">
+                    <img src="pic/image_search.jpg" alt="Image Search" width="330" height="200">
+                </a>
+                <input type="hidden" id="place" name="place" value="N/A" />
+                <div class="desc"><strong>Image Search</strong></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //passes form data to weather page to get location info
+        function getQueryString() { //this function gets the form data passed from homeExperiences.html
+            var result = {}, queryString = location.search.slice(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+
+            while (m = re.exec(queryString)) {
+                result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+
+            return result;
+        }
+
+        var place = getQueryString()["place"];
+        document.getElementById('location').textContent = place.replace(/[+]/g, ' ');
+        //document.getElementById("place").value = place;
+        var passThruPlace = document.querySelectorAll("[id='place']");
+        for (var i = 0; i < passThruPlace.length; i++) {
+            passThruPlace[i].value = place;
+        }
+        var date = getQueryString()["date"];
+        //TODO, input date info, might not be needed though
+    </script>
+
+
+</body>
+
+</html>

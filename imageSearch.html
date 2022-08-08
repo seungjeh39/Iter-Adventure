@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	-->
+  <title> Iter Adventure </title>
+  <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+  <meta name="description" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+  <script src="translate.js"></script>
+  <link rel="stylesheet" type="text/css" href="translate.css">
+</head>
+
+<body onload="start_contrast()">
+  <div class="wrapper">
+    <div class="navBar1">
+      <div class="nav1-left">
+        <a href="homeFlights.html">Back to Homepage</a>
+      </div>
+      <div class="nav1-right">
+        <ul>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Language</button>
+              <div class="dropdown-content">
+                <a href="javascript:;" onclick="setLanguage('en');" style="color:black">English</a>
+                <a href="javascript:;" onclick="setLanguage('es');" style="color:black">Spanish</a>
+                <a href="javascript:;" onclick="setLanguage('fr');" style="color:black">French</a>
+                <a href="javascript:;" onclick="setLanguage('ja');" style="color:black">Japanese</a>
+                <a href="javascript:;" onclick="setLanguage('ru');" style="color:black">Russian</a>
+              </div>
+            </div>
+          </li>
+          <li><a class="active" href="aboutUs.html">About Us</a></li>
+          <li><a id="contrast" href="javascript:;" onclick="set_contrast();" class="active">Contrast On</a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navBar2-experiences">
+      <ul>
+        <li>
+          <form id="formCulture" action="culture.html" method="GET">
+            <a href="javascript:;" onclick="document.getElementById('formCulture').submit();">
+              Culture
+            </a>
+            <input type="hidden" id="place" name="place" value="N/A" />
+          </form>
+        </li>
+        <li>
+          <form id="formMap" action="map.html" method="GET">
+            <a href="javascript:;" onclick="document.getElementById('formMap').submit();">
+              Map
+            </a>
+            <input type="hidden" id="place" name="place" value="N/A" />
+          </form>
+        </li>
+        <li>
+          <form id="formWeather" action="weather.html" method="GET">
+            <a href="javascript:;" onclick="document.getElementById('formWeather').submit();">
+              Weather
+            </a>
+            <input type="hidden" id="place" name="place" value="N/A" />
+          </form>
+        </li>
+        <li>
+          <form id="formImg" action="imageSearch.html" method="GET">
+            <a class="active" href="javascript:;" onclick="document.getElementById('formImg').submit();">
+              Image Search
+            </a>
+            <input type="hidden" id="place" name="place" value="N/A" />
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h1>Iter Image Search (powered by Pexel)</h1>
+    <form id="myForm" style="padding-left:2em;padding-top:1em">
+      <input type="text" id="search" placeholder="Search Photos" required>
+      <input type="submit" value="Search Photos" />
+    </form>
+  </div>
+  <br>
+
+  <div id="result">
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  function getQueryString() { //this function gets the form data passed from homeExperiences.html
+    var result = {}, queryString = location.search.slice(1),
+      re = /([^&=]+)=([^&]*)/g, m;
+    //experiences.html?place=Dallas%2C+TX%2C+USA&date=
+    //place=San+Francisco%2C+CA%2C+USA&date=
+    while (m = re.exec(queryString)) {
+      result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+
+    return result;
+  }
+
+  var place = getQueryString()["place"];
+  var passThruPlace = document.querySelectorAll("[id='place']");
+  for (var i = 0; i < passThruPlace.length; i++) {
+    passThruPlace[i].value = place;
+  }
+  place = place.split(",+")[0].replace(/[+]/g, ' ');
+
+  document.getElementById('search').value = place;
+
+  var form = $("#myForm")
+
+  form.submit(function (e) {
+    e.preventDefault()
+
+    var s = $("#search").val()
+
+    var url = "https://api.pexels.com/v1/search?query=" + s + "&per_page=5"
+
+    var photos
+
+    var photo
+
+    $("#result").empty()
+
+    $.ajax({
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", " 563492ad6f91700001000001317201a30e75412a8f39da99e2eda7c3")
+      },
+
+      method: 'GET',
+      url: url,
+      success: function (data) {
+        console.log(data)
+
+        photos = data.photos
+
+        for (var i = 0; i < photos.length; i++) {
+          photo = `
+                
+                <img height="300" src="${photos[i].src.original}"/>
+
+                `
+
+          $("#result").append(photo)
+        }
+      }
+    })
+  })
+
+</script>
+
+</html>
+
+<!--var api_key = "563492ad6f91700001000001317201a30e75412a8f39da99e2eda7c3"-->

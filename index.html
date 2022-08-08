@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Iter Adventure </title>
+  <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+  <meta name="description" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="translate.css">
+  <script src="translate.js"></script>
+</head>
+
+<body onload="start_contrast()">
+
+  <div class="wrapper">
+    <div class="navBar1">
+      <div class="nav1-left">
+        <a href="index.html">ITER - New Adventures</a>
+      </div>
+      <div class="nav1-right">
+        <ul>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Language</button>
+              <div class="dropdown-content">
+                <a href="javascript:;" onclick="setLanguage('en');" style="color:black">English</a>
+                <a href="javascript:;" onclick="setLanguage('es');" style="color:black">Spanish</a>
+                <a href="javascript:;" onclick="setLanguage('fr');" style="color:black">French</a>
+                <a href="javascript:;" onclick="setLanguage('ja');" style="color:black">Japanese</a>
+                <a href="javascript:;" onclick="setLanguage('ru');" style="color:black">Russian</a>
+              </div>
+            </div>
+          </li>
+          <li><a class="active" href="aboutUs.html">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="searchBox" style="padding:1em">
+    <div class="searchBox-location" style="margin-bottom:0.25em">
+      <input type="text" placeholder="Location">
+    </div>
+    <div class="searchBox-date">
+      <input type="text" placeholder="Date">
+    </div>
+
+  </div>
+
+</body>
+
+</html>
